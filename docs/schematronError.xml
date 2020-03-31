@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<svrl:schematron-output xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                        xmlns:schold="http://www.ascc.net/xml/schematron"
+                        xmlns:iso="http://purl.oclc.org/dsdl/schematron"
+                        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+                        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                        title=""
+                        schemaVersion=""><!--   
+          
+          
+        -->
+   <svrl:active-pattern document="file:///c:/" id="Applicant" name="Applicant"/>
+   <svrl:fired-rule context="Package/Content/Application/PersonApplicant"/>
+   <svrl:failed-assert test="year-from-dateTime($publishedDate)&gt;20200"
+                       location="/Package/Content/Application/PersonApplicant">
+      <svrl:text>year from data time function 2020</svrl:text>
+   </svrl:failed-assert>
+   <svrl:active-pattern document="file:///c:/" id="Application" name="Application"/>
+   <svrl:fired-rule context="Package/Content/Application"/>
+   <svrl:active-pattern document="file:///c:/" id="Contact" name="Contact"/>
+   <svrl:fired-rule context="Package/Content/Application/PersonApplicant/Contact/CurrentAddress"/>
+   <svrl:active-pattern document="file:///c:/" id="Employment" name="Employment"/>
+   <svrl:fired-rule context="Package/Content/Application/PersonApplicant/Employment/PAYG/Income"/>
+   <svrl:failed-assert test="not(@CarAllowanceAmount) and not(@CarAllowanceFrequency) or (@CarAllowanceAmount and @CarAllowanceFrequency)"
+                       location="/Package/Content/Application/PersonApplicant/Employment/PAYG/Income">
+      <svrl:text>If there is a car allowance amount there must be a car allowance frequency as well or vice versa.</svrl:text>
+   </svrl:failed-assert>
+   <svrl:active-pattern document="file:///c:/"
+                        id="NumberOfEmployment"
+                        name="NumberOfEmployment"/>
+   <svrl:fired-rule context="Package/Content/Application/PersonApplicant/Employment"/>
+   <svrl:failed-assert test="@SequenceNumber and count(./*)=1"
+                       location="/Package/Content/Application/PersonApplicant/Employment">
+      <svrl:text>Employment must only have one type of employment and a sequence number.</svrl:text>
+   </svrl:failed-assert>
+</svrl:schematron-output>

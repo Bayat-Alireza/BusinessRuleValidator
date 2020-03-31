@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29920.165
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessRuleValidator", "BusinessRuleValidator.csproj", "{5C7BE019-BDC1-47A3-9F47-55685AB45E62}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchematronLogic", "SchematronLogic\SchematronLogic.csproj", "{B57BADD3-A970-4B4D-B6FE-7628D155A199}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5C7BE019-BDC1-47A3-9F47-55685AB45E62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C7BE019-BDC1-47A3-9F47-55685AB45E62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C7BE019-BDC1-47A3-9F47-55685AB45E62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C7BE019-BDC1-47A3-9F47-55685AB45E62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B57BADD3-A970-4B4D-B6FE-7628D155A199}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B57BADD3-A970-4B4D-B6FE-7628D155A199}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B57BADD3-A970-4B4D-B6FE-7628D155A199}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B57BADD3-A970-4B4D-B6FE-7628D155A199}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3B080494-6546-4881-BF57-730FADC37975}
+	EndGlobalSection
+EndGlobal

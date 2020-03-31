@@ -1,0 +1,33 @@
+﻿<Package>
+  <Content>
+    <Application ProductionData="No">
+      <Address UniqueID="g1234"/>
+      <Address UniqueID="r1234"/>
+
+      <PersonApplicant DateOfBirth="2002-05-11">
+        <Contact>
+          <CurrentAddress
+              x_MailingAddress="g1234"
+              x_ResidentialAddress="r1234"/>
+        </Contact>
+        <Employment SequenceNumber="1253">
+          <NotEmployed></NotEmployed>
+          <PAYG>
+            <Income
+              CarAllowanceFrequency="Monthly"/>
+          </PAYG>
+        </Employment>
+
+      </PersonApplicant>
+
+    </Application>
+  </Content>
+  <Instructions>
+    <ApplicationInstructions>
+      <Submit/>
+    </ApplicationInstructions>
+  </Instructions>
+  <Publisher LIXICode="" PublishedDateTime="2020-05-12T12:45:10"/>
+  <Recipient LIXICode=""/>
+  <SchemaVersion LIXITransactionType="CAL" LIXIVersion="2.6.24"/>
+</Package>
