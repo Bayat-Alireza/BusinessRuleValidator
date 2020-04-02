@@ -1,33 +1,23 @@
 # Licence [MPL2](https://licenses.nuget.org/MPL-2.0)
 
-# How to create a .net solution to test an xml document against Schematron rules set.
+# How to create a .net solution to test an xml document against an Schematron document.
 
 ## Schematron diagram
 
-```mermaid
-graph TD
-
-schematron(Schematron.sch)
-
-saxonXslt2(SAXON XSLT2 Engine)
-instance(Instance.xml)
-isoSchematronSkeleton(Iso_Schematron_Skeleton_for_saxon.xsl)
-isoSvrlForXslt(iso_svrl_for_xslt2.xsl)
-output(Output)
-
-schematron-.->saxonXslt2
-isoSvrlForXslt-.->saxonXslt2
-instance-.->saxonXslt2
-isoSvrlForXslt-.Internally Calls.->isoSchematronSkeleton
-saxonXslt2-.->output
-```
-
----
+![Schematron diagram](./assets/SchematronDiagram.png)
 
 1. In visual studio Create a c# console app (Framework >= 4.6.1 )
+
+![ConsoleAppDotNetFramework](./assets/ConsoleAppDotNetFramework.png)
+
 2. right click the solution on the solution explorer view and click Add-->New Project
 3. from the open up dialog search for the c# class library (.Net Framework) and click next
+
+![classLibrary](./assets/classLibrary.png)
+
 4. Navigate to the directory where the ConsoleApp you created in step 1 is located and click create
+
+![configureNewProject](./assets/configureNewProject.png)
 
 ```code
 Solution 'ConsoleApp1'(2 of 2 projects)
@@ -35,11 +25,16 @@ Solution 'ConsoleApp1'(2 of 2 projects)
 - ConsoleApp1
 ```
 
-5. right click ConsoleApp1 and click Add-->Reference
+5. in the solution explorer right click ConsoleApp1 and click Add-->Reference
 6. from left hand side select projects and from the open up list in the middle select ClassLibrary1 and click ok
+
+![classLibraryReference](./assets/classLibraryReference.png)
+
 7. under the ClassLibrary1 in solution explorer locate Class1.cs then press F2 to change it to XSLTransform.cs
 
 `Note`: on the pop up dialog click yes to change all the reference to the element Class1
+
+![updateAllReferences](./assets/updateAllReferences.png)
 
 8. copy following code to inside XSLTransform.cs
 
@@ -138,9 +133,18 @@ namespace ClassLibrary1
 
 9. go to tools-->NuGet Package Manager-->Manage NuGet Packages for Solution
 10. on the Brows tap search for Saxon-HE and select the Saxon-HE by saxonica
+
+![downloadSaxonHE](./assets/downloadSaxonHE.png)
+
 11. on the right hand side select ClassLibrary1 and then click install
+
+![installSaxon-HE](./assets/installSaxon-HE.png)
+
 12. click ok on the preview change dialog
-13. right click ClassLibrary1 then Add-->Class change the name to SchHelper.cs and click Add
+
+![previewChange](./assets/previewChange.png)
+
+13. in solution explorer right click ClassLibrary1 then Add-->Class change the name to SchHelper.cs and click Add
 14. copy following code inside the SchHelper.cs
 
 ```c#
@@ -256,3 +260,8 @@ namespace ConsoleApp1
 28. select Text File then change the name to message.xml (note the extension must be .xml) copy your xml message content here
 29. right click ConsoleApp1 and select 'Set as Startup Project
 30. run the project by clicking Ctrl+F5.
+
+Bu default solution explorer not showing the schematronError.xml so to access the file either
+
+- navigate to the 'docs' folder from file explore from within your system or
+- in the solution explorer right click the 'docs' then click Add-->Existing Item then locate the schematronError.xml and click Add
