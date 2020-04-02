@@ -24,13 +24,10 @@ saxonXslt2-.->output
 
 ---
 
-1. Open up visual studio
-2. Create a new project
-3. select console app
-4. then click create (Framework >= 4.6.1 )
-5. right click solution on the solution explorer and click Add
-6. from the open up dialog search for the class library (.Net Framework) and click next
-7. Navigate to the directory where the consoleApp is located and click create
+1. In visual studio Create a c# console app (Framework >= 4.6.1 )
+2. right click the solution on the solution explorer view and click Add-->New Project
+3. from the open up dialog search for the c# class library (.Net Framework) and click next
+4. Navigate to the directory where the ConsoleApp you created in step 1 is located and click create
 
 ```code
 Solution 'ConsoleApp1'(2 of 2 projects)
@@ -38,13 +35,13 @@ Solution 'ConsoleApp1'(2 of 2 projects)
 - ConsoleApp1
 ```
 
-8. right click ConsoleApp1 and click Add-->Reference
-9. from left hand side select projects and from the open up list in the middle select ClassLibrary1
-10. under the ClassLibrary1 locate Class1.cs then press F2 to change it to XSLTransform.cs
+5. right click ConsoleApp1 and click Add-->Reference
+6. from left hand side select projects and from the open up list in the middle select ClassLibrary1 and click ok
+7. under the ClassLibrary1 in solution explorer locate Class1.cs then press F2 to change it to XSLTransform.cs
 
 `Note`: on the pop up dialog click yes to change all the reference to the element Class1
 
-11. copy following code to inside XSLTransform.cs
+8. copy following code to inside XSLTransform.cs
 
 ```c#
 
@@ -139,12 +136,12 @@ namespace ClassLibrary1
 
 ```
 
-12. go to tools-->NuGet Package Manager-->Manage NuGet Packages for Solution
-13. on the Brows tap search for Saxon-HE and select the Saxon-HE by saxonica
-14. on the right hand side select ClassLibrary1 and then click install
-15. click ok on the preview change dialog
-16. right click ClassLibrary1 the Add-->Class change the name to SchHelper.cs and click Add
-17. copy following code inside the SchHelper.cs
+9. go to tools-->NuGet Package Manager-->Manage NuGet Packages for Solution
+10. on the Brows tap search for Saxon-HE and select the Saxon-HE by saxonica
+11. on the right hand side select ClassLibrary1 and then click install
+12. click ok on the preview change dialog
+13. right click ClassLibrary1 then Add-->Class change the name to SchHelper.cs and click Add
+14. copy following code inside the SchHelper.cs
 
 ```c#
 using System;
@@ -202,8 +199,8 @@ namespace ClassLibrary1
 }
 ```
 
-18. on the ConsolApp1 locate program.cs
-19. Copy following code inside the program.cs
+15. in the solution explorer view under the ConsolApp1 locate program.cs
+16. Copy following code inside the program.cs
 
 ```c#
 
@@ -245,19 +242,17 @@ namespace ConsoleApp1
 
 ```
 
-20. right click on ConsoleApp1 and then click Add-->NewFolder and rename it to 'xsl_2'
+17. in the solution explorer view right click on ConsoleApp1 and then click Add-->NewFolder and rename it to 'xsl_2'
+18. right click on 'xsl_2' and then click Add-->NewItem
+19. select Text File then change the name to iso_svrl_for_xslt2.xsl (note the extension must be .xsl)
+20. go to [github iso-schematron-xslt2](https://github.com/Schematron/stf/blob/master/iso-schematron-xslt2/iso_svrl_for_xslt2.xsl) and copy the content of the file in the iso_svrl_for_xslt2.xsl
 21. right click on 'xsl_2' and then click Add-->NewItem
-22. select Text File then change the name to iso_svrl_for_xslt2.xsl (note the extension must be .xsl)
-23. go to [github iso-schematron-xslt2](https://github.com/Schematron/stf/blob/master/iso-schematron-xslt2/iso_svrl_for_xslt2.xsl) and copy the content of the file in the iso_svrl_for_xslt2.xsl
-24. right click on 'xsl_2' and then click Add-->NewItem
-25. select Text File then change the name to iso_schematron_skeleton_for_saxon.xsl (note the extension must be .xsl)
-26. go to [github iso_schematron_skeleton_for_saxon](https://github.com/Schematron/stf/blob/master/iso-schematron-xslt2/iso_schematron_skeleton_for_saxon.xsl) and copy the content of the file in the iso_schematron_skeleton_for_saxon.xsl
-27. right click on ConsoleApp1 and then click Add-->NewFolder and rename it to 'docs'
-28. right click on 'docs' and then click Add-->NewItem
-29. select Text File then change the name to schematron.sch (note the extension must be .sch) schematron rules goes here
-30. right click on 'docs' and then click Add-->NewItem
-31. select Text File then change the name to message.xml (note the extension must be .xml) xml document goes here
-
-32. right click ConsoleApp1 and select 'Set as Startup Project
-33. Add rules to Schematron.sch and xml message to the corresponding files
-34. run the project by clicking Ctrl+F5.
+22. select Text File then change the name to iso_schematron_skeleton_for_saxon.xsl (note the extension must be .xsl)
+23. go to [github iso_schematron_skeleton_for_saxon](https://github.com/Schematron/stf/blob/master/iso-schematron-xslt2/iso_schematron_skeleton_for_saxon.xsl) and copy the content of the file in the iso_schematron_skeleton_for_saxon.xsl
+24. right click on ConsoleApp1 and then click Add-->NewFolder and rename it to 'docs'
+25. right click on 'docs' and then click Add-->NewItem
+26. select Text File then change the name to schematron.sch (note the extension must be .sch) copy your schematron rules here
+27. right click on 'docs' and then click Add-->NewItem
+28. select Text File then change the name to message.xml (note the extension must be .xml) copy your xml message content here
+29. right click ConsoleApp1 and select 'Set as Startup Project
+30. run the project by clicking Ctrl+F5.
