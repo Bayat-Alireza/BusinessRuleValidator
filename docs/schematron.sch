@@ -25,8 +25,7 @@
           )
       )"
       >Person applicant must be at least 18 years old at the time of application submission.</sch:assert>
-      <sch:assert test="year-from-dateTime($publishedDate)>20200">year from data time function <sch:value-of select="year-from-dateTime($publishedDate)"/></sch:assert>
-      <!-- <sch:assert test="xs:dateTime($publishedDate)-xs:dateTime(./@DateOfBirth)>5000000000">Applicant <sch:value-of select="year-from-dateTime(./@DateOfBirth)"/> must be 18</sch:assert> -->
+       <sch:assert test="days-from-duration(xs:date(substring-before($publishedDate,'T'))-xs:date(./@DateOfBirth))div 365.2422 &gt;=18">Applicant is <sch:value-of select="floor(days-from-duration(xs:date(substring-before($publishedDate,'T'))-xs:date(./@DateOfBirth))div 365.2422)"/> but must be 18</sch:assert> 
     </sch:rule>
     
   </sch:pattern>

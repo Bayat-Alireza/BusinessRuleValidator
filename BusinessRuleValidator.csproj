@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="docs\message.xml" />
+    <Content Include="docs\schematronError.xml" />
     <Content Include="xsl_2\iso_schematron_skeleton_for_saxon.xsl" />
     <Content Include="xsl_2\iso_svrl_for_xslt2.xsl" />
   </ItemGroup>

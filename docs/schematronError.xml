@@ -11,9 +11,13 @@
         -->
    <svrl:active-pattern document="file:///c:/" id="Applicant" name="Applicant"/>
    <svrl:fired-rule context="Package/Content/Application/PersonApplicant"/>
-   <svrl:failed-assert test="year-from-dateTime($publishedDate)&gt;20200"
+   <svrl:failed-assert test="(substring-before($publishedDate,'-') - substring-before(./@DateOfBirth,'-') &gt; 18 or ( substring-before($publishedDate,'-') - substring-before(./@DateOfBirth,'-') = 18 and substring-before(substring-after($publishedDate,'-'),'-') &gt; substring-before(substring-after(./@DateOfBirth,'-'),'-')) ) or ( substring-before($publishedDate,'-') - substring-before(./@DateOfBirth,'-') = 18 and ( substring-before(substring-after($publishedDate,'-'),'-') = substring-before(substring-after(./@DateOfBirth,'-'),'-') ) and ( substring-before(substring-after(substring-after($publishedDate,'-'),'-'),'T') &gt; substring-after(substring-after(./@DateOfBirth,'-'),'-') ) )"
                        location="/Package/Content/Application/PersonApplicant">
-      <svrl:text>year from data time function 2020</svrl:text>
+      <svrl:text>Person applicant must be at least 18 years old at the time of application submission.</svrl:text>
+   </svrl:failed-assert>
+   <svrl:failed-assert test="days-from-duration(xs:date(substring-before($publishedDate,'T'))-xs:date(./@DateOfBirth))div 365.2422 &gt;=18"
+                       location="/Package/Content/Application/PersonApplicant">
+      <svrl:text>Applicant is 17 but must be 18</svrl:text>
    </svrl:failed-assert>
    <svrl:active-pattern document="file:///c:/" id="Application" name="Application"/>
    <svrl:fired-rule context="Package/Content/Application"/>
